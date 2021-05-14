@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+      <title>Prediction de la souscription d'un client pour un offre bancaire</title>
+   </head>
+
+   <body>
+   <div class="login-page">
+   <div class="form">
+      <div id="wrap">
+       <h1 style="color:Tomato;">  {{result}}</h1>
+      <h1>Predict subscription</h1>
+
+      <section id="furn" class="frame2">
+
+         <div class="login">
+
+            <form action="{{ url_for('classify')}}"method="post">
+            <table class="entryForm">
+            <tr><th>Age : </th><td><input type="text" name="Age" placeholder="Age du Client"></td></tr>
+            <tr><th>Education</th><td>
+               <select id="category" name="Education">
+               <option value="0">illiterate</option>
+               <option value="1">Basic.4y</option>
+               <option value="2">Basis.6y</option>
+               <option value="3">Basic.9y</option>
+               <option value="4">High school</option>
+               <option value="5">professional course</option>
+               <option value="6">University degree</option>
+            </select>
+            </td></tr>
+            <tr><th>Durée de l'appel (sec):</th><td><input type="text" name="Duration" placeholder="Durée"></td></tr>
+            <tr><th>Nombre de fois contacté en cette campagne</th><td><input type="text" name="Compain" placeholder="campagne"></td></tr>
+            <tr><th>Non contacté depuis</th><td><input type="text" name="pdays" placeholder="pdays"></td></tr>
+                           <tr><th>Nombre de fois contacté dans toutes les campagnes</th><td><input type="text" name="prv" placeholder="previous"></td></tr>
+
+            <tr><th>Résultat de la derniere campagne</th><td><select id="poutcome" name="Poutcome">
+               <option value="0">échoué</option>
+               <option value="1">réussi</option>
+
+            </select></td></tr>
+            <tr><th>Indice des prix à la consommation :</th><td><input type="text" name="conspr" placeholder="IPC"></td></tr>
+            <tr><th>Indice de confiance des consommateurs:</th><td><input type="text" name="conscf"placeholder="ICC"></td></tr>
+               <tr><th>Euribor-3mois :</th><td><input type="text" name="euri" placeholder="euri"></td></tr>
+               <tr><th>Nombre d'employés :</th><td><input type="text" name="nemp" placeholder="nemp"></td></tr>
+
+
+            </table>
+               <button type="reset" class="btn btn-clear">Reset</button><br><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+
+         </div>
+         </div></div>
+      </section>
+
+
+      <br>
+      <br>
+
+      </div>
+
+   </body>
+</html>
